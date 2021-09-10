@@ -4,7 +4,8 @@ The orthodox approach to forecasting tax revenues is usually based on forecastin
 
 The main characteristic of this approach is that it measures the overall elasticity of taxes in relation to their base. In the tax elasticity approach, the time series needs to be first excluded from the discretionary measures of the fiscal policy to calculate the coefficient of the net tax elasticity in relation to the respective macroeconomic variable. Tax elasticity, according to Jenkins et al. (2000, p. 39), is a relevant factor for forecasting and is most often used by ministries of finance when forecasting tax revenues. Furthermore, to obtain more robust forecasts when estimating the elasticities, it is necessary to harmonise them with the business cycle in the economy, which has significant effects on revenue collection
 
-https://github.com/jordans78/Forecasting-tax-revenues/blob/main/Documentation/Coefficients.png
+![Test picture](https://github.com/jordans78/Forecasting-tax-revenues/blob/main/Documentation/Coefficients.png)
+
 
 
 
