@@ -6,6 +6,10 @@ The main characteristic of this approach is that it measures the overall elastic
 
 ![Test picture](https://github.com/jordans78/Forecasting-tax-revenues/blob/main/Documentation/Coefficients.png)
 
+![Test picture](https://github.com/jordans78/Forecasting-tax-revenues/blob/main/Documentation/CollectionOfRevenues.png)
+
+
+
 
 
 
