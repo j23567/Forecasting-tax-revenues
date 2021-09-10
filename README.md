@@ -1,6 +1,4 @@
-# Forecasting-tax-revenues-_-Tax-buoyancy-Tax-Elasticity-
-
-**Forecasting tax revenues with Tax buoyancy and Tax-Elasticity**
+# Forecasting tax revenues with Tax buoyancy and Tax-Elasticity
 
 The orthodox approach to forecasting tax revenues is usually based on forecasting revenues based on tax buoyancy and tax elasticity. Tax buoyancy measures the gross elasticity of tax revenues in relation to the respective macroeconomic variable (e.g GDP ). 
 
