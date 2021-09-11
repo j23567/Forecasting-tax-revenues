@@ -1,10 +1,10 @@
 
-#  GDP-APPROACH MODEL #########################################################################################################################################################################
+#  Forecasting tax revenues ######################################################################################################################################################################
 #                                                                                                                                                                                                #
-#                                                 GDP-APPROACH MODEL                                                                                                                             #
-#                                                #CALCULATING ELASTICITY AND FORECASTING REVENUE                                                                                                 #
 #                                                                                                                                                                                                #
-#                                                   11-10-2020                                                                              by Jordan Simonov                                    #
+#                                       # CALCULATING ELASTICITY AND FORECASTING REVENUE                                                                                                         #
+#                                                                                                                                                                                                #
+#                                                   9-10-2021                                                                              by Jordan Simonov                                    #
 #                                                                                                                                                                                                #
 
 
@@ -18,6 +18,9 @@ rm(list=ls())
             library(gridExtra)
             library(bizdays)
             library(zoo)
+
+
+
 
 
 #  Module (I.) ----------------------------------------------------------------
@@ -47,7 +50,7 @@ rm(list=ls())
                             fun2 <- function(x,y,z){((x-(y*lag(z))))}
                             fun3 <- function(x,y){(lag(x)*lag(y))}
                 
-                # 2. Base estimation  ----------------------------------------          
+                # 2.Base estimation  ----------------------------------------          
                 
                                 
                             library(magrittr)
@@ -199,7 +202,7 @@ rm(list=ls())
                                 
                                 
                                 
-                # 3. Estimation of coefficients with OLS (Tax buoyancy & tax elasticity approach)--------------------------------------------------
+                # 3.Estimation of coefficients with OLS (Tax buoyancy & tax elasticity approach)--------------------------------------------------
                 
                                       # Tax buoyancy 
                                                 # PIT
@@ -286,7 +289,7 @@ rm(list=ls())
                 
                                                       
                 
-                # 4. Estimation of coefficients with ECM&ARDL -----------
+                # 4.Estimation of coefficients with ECM&ARDL -----------
                                                                                                                                                                      #
                                 
                                 BASE_REGRESSION<-data.frame(
@@ -1178,6 +1181,7 @@ rm(list=ls())
                 
                                           
 
+
 #  Module (II.) (Correction of error)--------------------------------
 
                                                 
@@ -1271,7 +1275,7 @@ rm(list=ls())
                 
                 rm(REVENUE_STRUCTURE_FINAL1,REVENUE_STRUCTURE_FINAL2,REVENUE_STRUCTURE_FINAL0,REVENUE_STRUCTURE_MONTLY,REVENUE_STRUCTURE_ANNUAL,REVENUE_STRUCTURE_FINAL3)
 
-                # 3. Distribution of the projection by months -------------------------------------
+                # 3.Distribution of the projection by months -------------------------------------
                 ANNUAL_PROJECTION<-select(FORECASTING_NEXT_YEARS,Year,Nominal_PIT,Nominal_CIT,Nominal_SSC,Nominal_VAT_NET,Nominal_VAT_GROSS,Nominal_EXCISE,Nominal_CUSTOMS_DUTIES,Nominal_EXCISE_GROSS,Nominal_TAX_REVENUES,Nominal_TAX_SSC,Nominal_NON_TAX_REVENUES,Nominal_REVENUES)%>%
                   dplyr::filter(Year==FORECASTING_YEAR)
                 colnames(ANNUAL_PROJECTION)<-c("Y","PIT","CIT","SSC","VAT_NET","VAT_GROSS","EXCISE_NET","CUSTOMS_DUTIES","EXCISE_GROSS","TAX_REVENUES","TAX_SSC","NON_TAX_REVENUES","REVENUES")
@@ -1331,7 +1335,7 @@ rm(list=ls())
                 #View(DAILY_AVERAGES)  #<--------------------------Ovaa tabela sodrzi podatoci koi se odnesuvaat na mesecna ditribucija plus dnevni proseci
                 
  
-                # 4. Distribution of projection by week --------------------------------------
+                # 4.Distribution of projection by week --------------------------------------
                 DATA_0<-select(Revenues_D,Y,date,PIT,CIT,VAT_NET,EXCISE_NET,CUS,SSC,TAX_REVENUES,EXCISE_GROSS,VAT_IMPORT,NON_TAX_REVENUES)
                 DATA_0<-filter(DATA_0,Y %in% c("2019","2018","2017")) #<----------- # <=== The range of years must be changed at each new screening of the year !
                
@@ -1401,7 +1405,7 @@ rm(list=ls())
                 rm(WEEKLY_STRUCTURE)
                 detach(package:zoo)
                
-                # 5. Input of realization and evaluation of ERROR ----------------------------
+                # 5.Input of realization and evaluation of ERROR ----------------------------
 
          
                # Define the number of months for which a comparison of projected and planned is made. 
@@ -1476,7 +1480,7 @@ rm(list=ls())
                         detach(package:Metrics)
         
 
-                # 6. New  revisited projection(Correction of current projections) --------------------------
+                # 6.New revisited projection(Correction of current projections) --------------------------
 
                 # This part of the code defines the number of months left until the end of the year in order to reassess the current projection, 
                 # i.e to increase or decrease it according to the analyzed period. increase or decrease in that case that increase or decrease will be taken into account in order to 
@@ -1641,6 +1645,7 @@ rm(list=ls())
                 # BUDGET PROJECTION-Projection based on official figures published in the budget and distributed monthly
 
                 
+
 
 # Module (III.) (Iteration and making new projections)----------------------
     
@@ -1835,26 +1840,38 @@ rm(list=ls())
       #   "C:/Users/hp/Documents/HOME WORK/ZIP/0-FISKALNA STRATEGIJA/FS 2021/1.Forecasting Model/PLOTING DAHSBOARDS/
 
         
+
 # Module (IV.) Output in Excel (Please set output path in your computer !!!!) ---------------------------------------------------------
         
                gc(TRUE)
+        
+        # C:/Users/User/Documents/DataScience/GitHub/Project 7/R/INPUT-DATA
+        
+        path<-"C:/Users/User/Documents/DataScience/GitHub/Project 7/R/INPUT-DATA/"
+        path1<-"C:/Users/User/Documents/DataScience/GitHub/Project 7/R/INPUT-DATA/OUTPUT/"
+
+        
         library(xlsx)
-        write.xlsx(as.data.frame(FINAL_ELASTICITY_COEFFICIENTS), file="C:/Users/hp/Documents/HOME WORK/ZIP/0-FISKALNA STRATEGIJA/FS 2021/1.Forecasting Model/PLOTING DAHSBOARDS/output.xlsx",sheetName="Coefficients", row.names=TRUE)
-        write.xlsx(as.data.frame(FINAL_ERRORS), file="C:/Users/hp/Documents/HOME WORK/ZIP/0-FISKALNA STRATEGIJA/FS 2021/1.Forecasting Model/PLOTING DAHSBOARDS/output.xlsx",sheetName="Accurancy", row.names=TRUE, append=TRUE)
-        write.xlsx(as.data.frame(FINAL_FORECASTING), file="C:/Users/hp/Documents/HOME WORK/ZIP/0-FISKALNA STRATEGIJA/FS 2021/1.Forecasting Model/PLOTING DAHSBOARDS/output.xlsx",col.names=TRUE,sheetName="Forecast", row.names=FALSE, append=TRUE)
-        write.xlsx(as.data.frame(REVENUE_STRUCTURE_FINAL), file="C:/Users/hp/Documents/HOME WORK/ZIP/0-FISKALNA STRATEGIJA/FS 2021/1.Forecasting Model/PLOTING DAHSBOARDS/new_projections.xlsx",sheetName="REVENUE_STRUCTURE", row.names=TRUE)
-        write.xlsx(as.data.frame(MONTLY_FORECAST_FINAL), file="C:/Users/hp/Documents/HOME WORK/ZIP/0-FISKALNA STRATEGIJA/FS 2021/1.Forecasting Model/PLOTING DAHSBOARDS/new_projections.xlsx",sheetName="MONTLY_FORECAST_FINAL", row.names=TRUE, append=TRUE)
-        write.xlsx(as.data.frame(data_bizz_days), file="C:/Users/hp/Documents/HOME WORK/ZIP/0-FISKALNA STRATEGIJA/FS 2021/1.Forecasting Model/PLOTING DAHSBOARDS/new_projections.xlsx",col.names=TRUE,sheetName="Bizz_days", row.names=TRUE, append=TRUE)
-        write.xlsx(as.data.frame(DAILY_AVERAGES), file="C:/Users/hp/Documents/HOME WORK/ZIP/0-FISKALNA STRATEGIJA/FS 2021/1.Forecasting Model/PLOTING DAHSBOARDS/new_projections.xlsx",sheetName="DAILY_AVERAGES", row.names=TRUE, append=TRUE)
-        write.xlsx(as.data.frame(WEEKLY_PROJECTION), file="C:/Users/hp/Documents/HOME WORK/ZIP/0-FISKALNA STRATEGIJA/FS 2021/1.Forecasting Model/PLOTING DAHSBOARDS/new_projections.xlsx",col.names=TRUE,sheetName="WEEKLY_PROJECTION", row.names=TRUE, append=TRUE)
-        write.xlsx(as.data.frame(MONTLY_ERROR), file="C:/Users/hp/Documents/HOME WORK/ZIP/0-FISKALNA STRATEGIJA/FS 2021/1.Forecasting Model/PLOTING DAHSBOARDS/new_projections.xlsx",col.names=TRUE,sheetName="MONTLY_ERROR", row.names=TRUE, append=TRUE)
-        write.xlsx(as.data.frame(CUMULATIVE_ERROR_EVALUATION), file="C:/Users/hp/Documents/HOME WORK/ZIP/0-FISKALNA STRATEGIJA/FS 2021/1.Forecasting Model/PLOTING DAHSBOARDS/new_projections.xlsx",col.names=TRUE,sheetName="CUMULATIVE_ERROR_EVALUATION", row.names=TRUE, append=TRUE)
-        write.xlsx(as.data.frame(AVERAGE_BIAS_EVALUATION), file="C:/Users/hp/Documents/HOME WORK/ZIP/0-FISKALNA STRATEGIJA/FS 2021/1.Forecasting Model/PLOTING DAHSBOARDS/new_projections.xlsx",col.names=TRUE,sheetName="AVERAGE_BIAS_EVALUATION", row.names=TRUE, append=TRUE)
-        write.xlsx(as.data.frame(Montly_Projection_Revisited), file="C:/Users/hp/Documents/HOME WORK/ZIP/0-FISKALNA STRATEGIJA/FS 2021/1.Forecasting Model/PLOTING DAHSBOARDS/new_projections.xlsx",col.names=TRUE,sheetName="Montly_Projection_Revisited", row.names=TRUE, append=TRUE)
-        write.xlsx(as.data.frame(FINAL_NEW_PROJECTIONS), file="C:/Users/hp/Documents/HOME WORK/ZIP/0-FISKALNA STRATEGIJA/FS 2021/1.Forecasting Model/PLOTING DAHSBOARDS/new_projections.xlsx",col.names=TRUE,sheetName="FINAL_NEW_PROJECTIONS", row.names=TRUE, append=TRUE)
-        write.xlsx(as.data.frame(FINAL_BASE_GRAPH), file="C:/Users/hp/Documents/HOME WORK/ZIP/0-FISKALNA STRATEGIJA/FS 2021/1.Forecasting Model/PLOTING DAHSBOARDS/new_projections.xlsx",col.names=TRUE,sheetName="FINAL_BASE_GRAPH", row.names=TRUE, append=TRUE)
-        write.xlsx(as.data.frame(FINAL_BASE_GRAPH_YEARLY), file="C:/Users/hp/Documents/HOME WORK/ZIP/0-FISKALNA STRATEGIJA/FS 2021/1.Forecasting Model/PLOTING DAHSBOARDS/new_projections.xlsx",col.names=TRUE,sheetName="FINAL_BASE_GRAPH_YEARLY", row.names=TRUE, append=TRUE)
-        write.xlsx(as.data.frame(FINAL_FORECASTING), file="C:/Users/hp/Documents/HOME WORK/ZIP/0-FISKALNA STRATEGIJA/FS 2021/1.Forecasting Model/PLOTING DAHSBOARDS/new_projections.xlsx",col.names=TRUE,sheetName="MediumTermForecast", row.names=FALSE, append=TRUE)
-
-
-
+#       
+        # Path File output.xlsx
+        write.xlsx(as.data.frame(FINAL_ELASTICITY_COEFFICIENTS),file=paste(path,"output.xlsx",sep=""),sheetName="Coefficients", row.names=TRUE)
+        write.xlsx(as.data.frame(FINAL_ERRORS),file=paste(path,"output.xlsx",sep=""),sheetName="Accurancy", row.names=TRUE, append=TRUE)
+        write.xlsx(as.data.frame(FINAL_FORECASTING), file=paste(path,"output.xlsx",sep=""),col.names=TRUE,sheetName="Forecast", row.names=FALSE, append=TRUE)
+        write.xlsx(as.data.frame(REVENUE_STRUCTURE_FINAL), file=paste(path,"output.xlsx",sep=""),sheetName="REVENUE_STRUCTURE", row.names=TRUE)
+        
+        # Path 1 File new_projections
+        write.xlsx(as.data.frame(MONTLY_FORECAST_FINAL), file=paste(path1,"new_projections.xlsx",sep=""),sheetName="REVENUE_STRUCTURE",sheetName="MONTLY_FORECAST_FINAL", row.names=TRUE,append=TRUE)
+        write.xlsx(as.data.frame(data_bizz_days), file=paste(path1,"new_projections.xlsx",sep=""),col.names=TRUE,sheetName="Bizz_days", row.names=TRUE, append=TRUE)
+        write.xlsx(as.data.frame(DAILY_AVERAGES),  file=paste(path1,"new_projections.xlsx",sep=""),sheetName="DAILY_AVERAGES", row.names=TRUE, append=TRUE)
+        write.xlsx(as.data.frame(WEEKLY_PROJECTION), file=paste(path1,"new_projections.xlsx",sep=""),col.names=TRUE,sheetName="WEEKLY_PROJECTION", row.names=TRUE, append=TRUE)
+        write.xlsx(as.data.frame(MONTLY_ERROR), file=paste(path1,"new_projections.xlsx",sep=""),col.names=TRUE,sheetName="MONTLY_ERROR", row.names=TRUE, append=TRUE)
+        write.xlsx(as.data.frame(CUMULATIVE_ERROR_EVALUATION), file=paste(path1,"new_projections.xlsx",sep=""),col.names=TRUE,sheetName="CUMULATIVE_ERROR_EVALUATION", row.names=TRUE, append=TRUE)
+        write.xlsx(as.data.frame(AVERAGE_BIAS_EVALUATION), file=paste(path1,"new_projections.xlsx",sep=""),col.names=TRUE,sheetName="AVERAGE_BIAS_EVALUATION", row.names=TRUE, append=TRUE)
+        write.xlsx(as.data.frame(Montly_Projection_Revisited),file=paste(path1,"new_projections.xlsx",sep=""),col.names=TRUE,sheetName="Montly_Projection_Revisited", row.names=TRUE, append=TRUE)
+        write.xlsx(as.data.frame(FINAL_NEW_PROJECTIONS), file=paste(path1,"new_projections.xlsx",sep=""),col.names=TRUE,sheetName="FINAL_NEW_PROJECTIONS", row.names=TRUE, append=TRUE)
+        write.xlsx(as.data.frame(FINAL_BASE_GRAPH),file=paste(path1,"new_projections.xlsx",sep=""),col.names=TRUE,sheetName="FINAL_BASE_GRAPH", row.names=TRUE, append=TRUE)
+        write.xlsx(as.data.frame(FINAL_BASE_GRAPH_YEARLY), file=paste(path1,"new_projections.xlsx",sep=""),col.names=TRUE,sheetName="FINAL_BASE_GRAPH_YEARLY", row.names=TRUE)
+        write.xlsx(as.data.frame(FINAL_FORECASTING), file=paste(path1,"new_projections.xlsx",sep=""),col.names=TRUE,sheetName="MediumTermForecast", row.names=FALSE)
+        
+        
+    
