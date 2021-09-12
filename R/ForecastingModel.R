@@ -1217,7 +1217,7 @@ rm(list=ls())
                  REVENUE_REALIZATION <- read_excel("INPUT-DATA/MACRO_FISCAL_INDICATORS/MACRO_FISCAL_INDICATORS.xlsx", 
                                                       sheet = "REVENUE_REALISATION_CURRENT")
 
-                # Official budget projection
+                # Budget projection
                 BUDGET_PROJECTIONS <- read_excel("INPUT-DATA/MACRO_FISCAL_INDICATORS/MACRO_FISCAL_INDICATORS.xlsx", 
                                                       sheet = "BUDGET_PROJECTIONS")
                 
@@ -1875,3 +1875,4 @@ rm(list=ls())
         
         
     
+        
