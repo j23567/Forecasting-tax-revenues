@@ -21,4 +21,6 @@ Dashboard produced from model
 
 
 
-Data used in this model are publicly available on the web pages of MoF and SSO.
+Data used in this model are publicly available on the web pages of MoF and SSO in Republic of North Macedonia. Hoewer this model can be used on diffrent countries with 
+GRD - Government revenue dataset from UN-WIDER https://www.wider.unu.edu/about-grd
+
