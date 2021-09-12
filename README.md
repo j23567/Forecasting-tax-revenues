@@ -20,11 +20,8 @@ Estimated tax buoyancy and tax elasticity coeffcients
 
 Collection of revenues
 
-![Test picture](https://github.com/jordans78/Forecasting-tax-revenues/blob/main/Documentation/CollectionOfRevenues.png)
+![Test picture](https://github.com/jordans78/Forecasting-tax-revenues/blob/main/Documentation/CollectionStructureOfRevenues.PNG)
 
-Structure of revenues
-
-![Test picture](https://github.com/jordans78/Forecasting-tax-revenues/blob/main/Documentation/StructureOfRevenues.png)
 
 
 
