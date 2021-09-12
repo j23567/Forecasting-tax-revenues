@@ -17,7 +17,7 @@ Estimated tax buoyancy and tax elasticity coeffcients
 
 
 Dashboard produced by data from model
-![Dasboard](https://github.com/jordans78/Forecasting-tax-revenues/blob/main/Documentation/Dashboard.PNG)
+![Dasboard](https://github.com/jordans78/Forecasting-tax-revenues/blob/main/Documentation/PIT.PNG)
 
 
 
