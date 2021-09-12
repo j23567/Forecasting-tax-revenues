@@ -9,8 +9,8 @@ Dashboard produced by data from model
 ![Dasboard](https://github.com/jordans78/Forecasting-tax-revenues/blob/main/Documentation/Dashboard.PNG)
 
 
-
-![Stucture of TAX](https://github.com/jordans78/Forecasting-tax-revenues/blob/main/Documentation/Coefficients.png)
+Share of taxes in GDP
+![Stucture of TAX](https://github.com/jordans78/Forecasting-tax-revenues/blob/main/Documentation/ShareOfGDP.png)
 
 
 
