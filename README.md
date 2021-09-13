@@ -15,6 +15,14 @@ Share of taxes in GDP
 Estimated tax buoyancy and tax elasticity coeffcients
 ![Test picture](https://github.com/jordans78/Forecasting-tax-revenues/blob/main/Documentation/Coefficients.png)
 
+| Legal   basis 	| Articles 	| Type of measure 	| Objective 	| Tax expenditures 	| Share of GDP 	|
+|---	|---	|---	|---	|---	|---	|
+| Law on Value   Added Tax 	| Articles   23, 24, 24-a, 27, 27-a, 27-b and 27-c        	| Tax exemptions  	| Economic 	| 7,593 	| 1.2 	|
+| Law on Value   Added Tax 	| Article 30 	| Preferential tax rate 	| Social 	| 7,524 	| 1.2 	|
+| TOTAL 	|   	|   	|   	| 15,117 	| 2.4 	|
+
+
+
 
 Dashboard produced from the model
 ![Dasboard](https://github.com/jordans78/Forecasting-tax-revenues/blob/main/Documentation/PIT.PNG)
