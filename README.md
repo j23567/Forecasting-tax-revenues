@@ -17,7 +17,7 @@ Estimated tax buoyancy and tax elasticity coeffcients
 
 
 
-
+Coeficients of buoyancy  elasticity 
 
 |   	| Buoyancy 	| Elasticity 	| Short run effect 	| Long run effect 	| Error correction coefficient 	|
 |---	|---	|---	|---	|---	|---	|
