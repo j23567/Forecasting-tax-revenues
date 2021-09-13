@@ -15,7 +15,11 @@ Share of taxes in GDP
 Estimated tax buoyancy and tax elasticity coeffcients
 ![Test picture](https://github.com/jordans78/Forecasting-tax-revenues/blob/main/Documentation/Coefficients.png)
 
-|   	| Buoyancy 	| Elasticity 	| Short_run_effect 	| Long_run_effect 	| Error_correction_coefficient 	|
+
+
+
+
+|   	| Buoyancy 	| Elasticity 	| Short run effect 	| Long run effect 	| Error correction coefficient 	|
 |---	|---	|---	|---	|---	|---	|
 | PIT 	| 0.47 	| 1.00 	| 0.86 	| 1.06 	| -0.21 	|
 | CIT 	| 1.83 	| 1.47 	| 1.59 	| 1.41 	| -0.59 	|
